@@ -1,6 +1,5 @@
+
 require("dotenv").config();
-// Basic Node application for requesting data from the OMDB website via axios
-// Here we incorporate the "axios" npm package
 const axios = require("axios");
 const moment = require("moment");
 const fs = require("fs");
@@ -31,16 +30,18 @@ else {
 function concertThis(artist) {
   axios.get("https://rest.bandsintown.com/artists/" + action + "/events?app_id=codingbootcamp").then(
     function (response) {
+    
       for (let index = 0; index < response.data.length; index++) {
-        const element = response.data[index].venue;
-        console.table(element);
+        const jsonData = response.data;
+        const showArtist = [
+          "Name: " + jsonData[index].venue.name,
+          "City: " + jsonData[index].venue.city,
+          "Region: " + jsonData[index].venue.region,
+          "Country: " + jsonData[index].venue.country,
+          "Date: " + moment(jsonData[index].datetime).format("MM/DD/YYYY")
+        ]//.join("\n\n");//
+        console.table(showArtist)
       }
-      // console.table("Name" + " " + response.data[0].venue.name + "City:" + " " + response.data[0].venue.city + "Region:" + " " + response.data[0].venue.region + "Country:" + " " + response.data[0].venue.country + "Date: " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
-      // console.log("Name" + " " + response.data[0].venue.name);
-      // console.log("City:" + " " + response.data[0].venue.city);
-      // console.log("Region:" + " " + response.data[0].venue.region);
-      // console.log("Country:" + " " + response.data[0].venue.country);
-      // console.log("Date: " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
 
     })
 
@@ -58,9 +59,9 @@ function concertThis(artist) {
     });
 }
 
-function spotifyThis() {
-  if (action < 4) {
-    action = "The Sign"
+function spotifyThis(song) {
+  if (!action) {
+    action = "The Sign Ace of Base"
     spotify
       .search({ type: 'track', query: action, limit: 1 },
         function (err, response) {
@@ -68,11 +69,13 @@ function spotifyThis() {
           if (err) {
             return console.log('Error occurred: ' + err)
           }
-          // console.log(response);
-          console.log("Track Name: " + response.tracks.items[0].name)
-          console.log("Artist Name: " + response.tracks.items[0].artists[0].name)
-          console.log("Album Name: " + response.tracks.items[0].album.name)
-          console.log("Preview URL: " + response.tracks.items[0].external_urls.spotify)
+          const showSong = [
+            "Track Name: " + response.tracks.items[0].name,
+            "Artist Name: " + response.tracks.items[0].artists[0].name,
+            "Album Name: " + response.tracks.items[0].album.name,
+            "Preview URL: " + response.tracks.items[0].external_urls.spotify
+          ]
+          console.table(showSong)
         });
 
   }
@@ -85,29 +88,34 @@ function spotifyThis() {
           if (err) {
             return console.log('Error occurred: ' + err)
           }
-          console.log("Track Name: " + response.tracks.items[0].name)
-          console.log("Artist Name: " + response.tracks.items[0].artists[0].name)
-          console.log("Album Name: " + response.tracks.items[0].album.name)
-          console.log("Preview URL: " + response.tracks.items[0].external_urls.spotify)
+          const showSong = [
+            "Track Name: " + response.tracks.items[0].name,
+            "Artist Name: " + response.tracks.items[0].artists[0].name,
+            "Album Name: " + response.tracks.items[0].album.name,
+            "Preview URL: " + response.tracks.items[0].external_urls.spotify
+          ]
+          console.table(showSong)
         });
   }
 
 }
 
 function movieThis(movie) {
-  if (action < 4) {
+  if (!action) {
     action = "Mr.Nobody"
     axios.get("http://www.omdbapi.com/?t=" + action + "&y=&plot=short&apikey=trilogy").then(
       function (response) {
-        // console.log(JSON.stringify(result, null, 2));
-        console.log("Title: " + response.data.Title);
-        console.log("Year: " + response.data.Year);
-        console.log("Rating: " + response.data.imdbRating);
-        console.log("Rotten Tomatoes Value: " + response.data.Ratings[1].Value);
-        console.log("Country: " + response.data.Country);
-        console.log("Language: " + response.data.Language);
-        console.log("Plot: " + response.data.Plot)
-        console.log("Actors: " + response.data.Actors)
+        const showMovie = [
+          "Title: " + response.data.Title,
+          "Release Year: " + response.data.Year,
+          "IMDB Rating: " + response.data.imdbRating,
+          "Rotten Tomatoes Rating: " + response.data.Ratings[1].Value,
+          "Country: " + response.data.Country,
+          "Language: " + response.data.Language,
+          "Plot: " + response.data.Plot,
+          "Actors: " + response.data.Actors
+        ]
+        console.table(showMovie)
       })
 
       .catch(function (error) {
@@ -127,15 +135,17 @@ function movieThis(movie) {
   else {
     axios.get("http://www.omdbapi.com/?t=" + action + "&y=&plot=short&apikey=trilogy").then(
       function (response) {
-        // console.log(JSON.stringify(result, null, 2));
-        console.log("Title: " + response.data.Title);
-        console.log("Year: " + response.data.Year);
-        console.log("Rating: " + response.data.imdbRating);
-        console.log("Rotten Tomatoes Value: " + response.data.Ratings[1].Value);
-        console.log("Country: " + response.data.Country);
-        console.log("Language: " + response.data.Language);
-        console.log("Plot: " + response.data.Plot)
-        console.log("Actors: " + response.data.Actors)
+        const showMovie = [
+          "Title: " + response.data.Title,
+          "Release Year: " + response.data.Year,
+          "IMDB Rating: " + response.data.imdbRating,
+          "Rotten Tomatoes Rating: " + response.data.Ratings[1].Value,
+          "Country: " + response.data.Country,
+          "Language: " + response.data.Language,
+          "Plot: " + response.data.Plot,
+          "Actors: " + response.data.Actors
+        ]
+        console.table(showMovie)
       })
 
       .catch(function (error) {
@@ -154,29 +164,30 @@ function movieThis(movie) {
 
 }
 
-function doWhatItSays() {
+function doWhatItSays(random) {
   fs.readFile("random.txt", "utf8", function (error, data) {
     if (error) {
       return console.log(error);
     }
 
-    console.log(data);
+    // console.log(data);
     const dataArr = data.split(",");
-    console.log(dataArr)
-    console.log(dataArr[1])
-    // action.push(dataArr)
+    // console.log(dataArr[0])
+    // console.log(dataArr[1])
+      action = dataArr[1]
 
-    spotify
-      .search({ type: 'track', query: dataArr[1], limit: 1 },
-        function (err, response) {
-          if (err) {
-            return console.log('Error occurred: ' + err)
-          }
-          console.log("Track Name: " + response.tracks.items[0].name)
-          console.log("Artist Name: " + response.tracks.items[0].artists[0].name)
-          console.log("Album Name: " + response.tracks.items[0].album.name)
-          console.log("Preview URL: " + response.tracks.items[0].external_urls.spotify)
-        }
-      )
+    if (dataArr[0] === "concert-this") {
+      concertThis();
+    }
+    else if (dataArr[0] === "spotify-this-song") {
+      spotifyThis();
+    }
+    else if (dataArr[0] === "movie-this") {
+      movieThis();
+    }
+    
+    else {
+      console.log("ERROR")
+    }
   });
 }
