@@ -48,7 +48,7 @@ SPOTIFY_SECRET=your-spotify-secret
 * Step 1: Initialize 
 Assuming you have updated your own .env file to utilize this project, you will now need to install the approrpiate packages for this project. 
 
-!(https://drive.google.com/file/d/18Znxtiyp-iYdsN5_0LBHtQ3FjR3dSS4H/view)
+![Step 1](https://drive.google.com/file/d/18Znxtiyp-iYdsN5_0LBHtQ3FjR3dSS4H/view)
 
 
 
