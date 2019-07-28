@@ -54,7 +54,8 @@ SPOTIFY_SECRET=your-spotify-secret
 * Step 1: Initialize 
 Assuming you have updated your own .env file to utilize this project, you will now need to install the appropriate packages for this project. 
 
-![Step 1](https://drive.google.com/file/d/1mLiZkzVWhemO-w3_yQhOHm62DMkiLB-Q/view?usp=sharing)
+![](https://drive.google.com/file/d/1mLiZkzVWhemO-w3_yQhOHm62DMkiLB-Q/view?usp=sharing)
+(https://drive.google.com/uc?export=view&id=1mLiZkzVWhemO-w3_yQhOHm62DMkiLB-Q)
 
 
 * Step 2: Run Commands 
@@ -66,7 +67,7 @@ This will search the Bands in Town Artist Events API and render the following in
     * Venue location
     * Date of the Event
 
-![concert this](https://drive.google.com/file/d/1sGcEAESqu2IfCmTvzr9ucEoVOkSzN59F/view?usp=sharing)
+![](https://drive.google.com/file/d/1sGcEAESqu2IfCmTvzr9ucEoVOkSzN59F/view?usp=sharing)
 
 2. `node liri.js spotify-this-song '<song name here>'`
 * This will show the following information about the song in your terminal/bash window
@@ -77,7 +78,7 @@ This will search the Bands in Town Artist Events API and render the following in
     * The album that the song is from
     * If no song is provided then your program will default to "The Sign" by Ace of Base.
 
-![spotify this song](https://drive.google.com/file/d/1K5LhyVNyLSvK5J8A1awpA-OJU_Hdj49j/view?usp=sharing)
+![](https://drive.google.com/file/d/1K5LhyVNyLSvK5J8A1awpA-OJU_Hdj49j/view?usp=sharing)
 
 3. `node liri.js movie-this '<movie name here>'`
 * This will output the following information to your terminal/bash window:
@@ -92,12 +93,12 @@ This will search the Bands in Town Artist Events API and render the following in
 
 * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
-![movie this](https://drive.google.com/file/d/1sWcxgkNpyWDfT_JC_dvFQGv9iZzRmVlL/view?usp=sharing)
+![](https://drive.google.com/file/d/1sWcxgkNpyWDfT_JC_dvFQGv9iZzRmVlL/view?usp=sharing)
 
 4. `node liri.js do-what-it-says`
 Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
 * This should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 
-![do what it says](https://drive.google.com/file/d/141AmbGWxQzUB_5yo82jFXew-V3ZewafN/view?usp=sharing)
+![](https://drive.google.com/file/d/141AmbGWxQzUB_5yo82jFXew-V3ZewafN/view?usp=sharing)
 
