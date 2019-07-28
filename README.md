@@ -51,13 +51,13 @@ SPOTIFY_SECRET=your-spotify-secret
 
 ## User Guide + Screenshots
 
-* Step 1: Initialize 
+### Step 1: Initialize 
 Assuming you have updated your own .env file to utilize this project, you will now need to install the appropriate packages for this project. 
 
 ![](https://drive.google.com/uc?export=view&id=1mLiZkzVWhemO-w3_yQhOHm62DMkiLB-Q)
 
 
-* Step 2: Run Commands 
+### Step 2: Run Commands 
 1. `node liri.js concert-this <artist/band name here>`
 
 This will search the Bands in Town Artist Events API and render the following information about each event to the terminal:
