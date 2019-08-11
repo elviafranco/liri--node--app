@@ -172,9 +172,9 @@ function doWhatItSays(random) {
 
     // console.log(data);
     const dataArr = data.split(",");
-    // console.log(dataArr[0])
-    // console.log(dataArr[1])
-      action = dataArr[1]
+      action = dataArr[1].replace(/\"/g, "");
+      console.log (dataArr[0]);
+      console.log (action)
 
     if (dataArr[0] === "concert-this") {
       concertThis();
